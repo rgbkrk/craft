@@ -1,0 +1,4 @@
+craft
+=====
+
+Bukkit server setup
