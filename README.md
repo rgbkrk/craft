@@ -1,4 +1,4 @@
 craft
 =====
 
-Bukkit server setup
+Minecraft server set up for ScriptCraft (using CanaryMod).
