@@ -8,9 +8,12 @@ EXPOSE 8080
 RUN apt-get update
 RUN apt-get install nodejs-legacy npm -y
 
-RUN mkdir -p /srv/minecraft
+RUN mkdir -p /srv/minecraft/config
 
 WORKDIR /srv/minecraft
+
+RUN echo "rgbkrk" > /srv/minecraft/config/ops.cfg
+RUN echo "eula=true" > /srv/minecraft/eula.txt
 
 # CanaryMod, latest
 ADD http://canarymod.net/releases/latest-download /srv/minecraft/minecraft_server.jar
@@ -20,6 +23,6 @@ ADD http://canarymod.net/releases/latest-download /srv/minecraft/minecraft_serve
 ADD http://scriptcraftjs.org/download/latest/scriptcraft.jar /srv/minecraft/plugins/scriptcraft.jar
 
 RUN chmod a+rwX /srv/minecraft/ -R
-RUN echo "eula=true" > eula.txt
+
 
 CMD ["java", "-Xmx1024M", "-jar", "minecraft_server.jar"]
